@@ -147,8 +147,8 @@ if ( isset( $_POST['get-current-live-blogs'] ) && $_POST['get-current-live-blogs
 	$page     = isset( $_POST['page'] ) ? intval( $_POST['page'] ) : 1;
 	$per_page = isset( $_POST['per_page'] ) ? intval( $_POST['per_page'] ) : 10;
 	// Get the results for the specified page and per_page
-//	$results = get_current_live_blogs($page, $per_page);
-	$results = dummy_data( $page, $per_page );
+	$results = get_current_live_blogs($page, $per_page);
+//	$results = dummy_data( $page, $per_page );
 
 	// Encode the array as JSON and return it
 	echo json_encode( $results );
@@ -187,7 +187,7 @@ if ( isset( $_POST['get-current-live-blogs'] ) && $_POST['get-current-live-blogs
 <body>
 <h1>Get Current GiftSite Live Blogs</h1>
 <button id="get-live-blogs-button">Get blog status</button>
-<button id="get-live-blogs">Get only lives</button>
+<!--<button id="get-live-blogs">Get only lives</button>-->
 <div>
     <div id="processing"></div>
     <br/>
@@ -291,7 +291,7 @@ if ( isset( $_POST['get-current-live-blogs'] ) && $_POST['get-current-live-blogs
             if ( value === 'no' ) {
                 liveSites.push( `<span style="color:green">${ name }</span>: <br/><span style="font-size:12px;">${ message }</span><br/><span style="font-weight:bold;">${ email }</span>` );
             } else {
-                catalogSites.push( `<span style="color:red">${ name }</span>: <br/><span style="font-size:12px;">${ message }</span>` );
+                catalogSites.push( `<span style="color:red">${ name }</span>: <br/><span style="font-size:12px;">${ message }</span><br/><span style="font-weight:bold;">${ email }</span>` );
             }
         }
 
